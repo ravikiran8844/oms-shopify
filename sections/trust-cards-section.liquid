@@ -1,0 +1,57 @@
+<section class="py-5 home-section4 page-width">
+      <div class="row">
+        {% for block in section.blocks %}
+            <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+          <div class="card home-section4_item">
+            <div class="card-body text-center py-5 p-lg-5">
+              <div>
+                <img src="{{block.settings.image | image_url }}" width="80" height="80" alt />
+              </div>
+              <div class="home-section4_item-title my-4">{{block.settings.title}}</div>
+              <div class="home-section4_item-text">
+                {{block.settings.text}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+       
+      </div>
+    </section>
+
+
+
+{% schema %}
+{
+    "name": "Trust Cards",
+    "settings": [
+        
+        ],
+        "blocks": [{
+            "limit": 2,
+            "name": "card",
+            "type": "card-block",
+            "settings": [{
+            "id": "image",
+            "type": "image_picker",
+            "label": "Desktop Image"
+        },
+        {
+            "type":"text",
+            "id": "title",
+            "label": "Title",
+            "default": "40 Years of trust"
+        },
+        {
+            "type":"text",
+            "id": "text",
+            "label": "content",
+            "default": "<p>We stand behind our quality with more than 4 decades of trust from our 500+ dealer network worldwide.</p>"
+        }
+    ]
+        }],
+        "presets": [{
+            "name": "Trust Cards"
+        }]
+}
+{% endschema %}

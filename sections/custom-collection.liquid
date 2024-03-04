@@ -1,0 +1,138 @@
+
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+
+<section>
+    <div class="page-width py-5">
+        <div class="col-12 mb-4 mb-md-5">
+            <div class="fs-1 fw-bold text-center">{{section.settings.title}}</div>
+        </div>
+
+
+
+        <div class="swiper categorySlider-{{section.id}}">
+            <div class="swiper-wrapper pb-5">
+                {% for block in section.blocks %}
+                    <div class="swiper-slide category-slider-swiper-slide">
+                    <div class="text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <a href="{{block.settings.link}}">
+                                <img width="253" height="316" class="img-fluid rounded-3"
+                                src="{{block.settings.image |  image_url }}" alt="">
+                            </a>
+                        </div>
+                        <div class="fs-4 fw-medium mt-3">{{block.settings.title}}</div>
+
+                        <div class="fs-4 mb-3"><a class="text-warning" href="{{block.settings.link}}">{{block.settings.text}} <span><svg width="16" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M22.4296 5.16834L18.2239 0.380669C18.1628 0.312557 18.09 0.258691 18.0097 0.221762C17.9294 0.184834 17.8432 0.165741 17.7561 0.165741C17.669 0.165741 17.5828 0.184834 17.5024 0.221762C17.4221 0.258691 17.3493 0.312557 17.2882 0.380669C17.1669 0.52492 17.0995 0.713943 17.0995 0.910178C17.0995 1.10641 17.1669 1.29544 17.2882 1.43969L20.377 4.94802H1.16983C0.988371 4.94802 0.814346 5.02712 0.686038 5.1678C0.55773 5.30848 0.485596 5.49943 0.485596 5.69839C0.485596 5.89734 0.55773 6.08775 0.686038 6.22844C0.814346 6.36912 0.988371 6.44821 1.16983 6.44821H20.377L17.2882 9.95655C17.1669 10.1008 17.0995 10.2898 17.0995 10.4861C17.0995 10.6823 17.1669 10.8713 17.2882 11.0156C17.3485 11.0852 17.421 11.1404 17.5015 11.1782C17.5819 11.2161 17.6685 11.2359 17.7561 11.2359C17.8436 11.2359 17.9302 11.2161 18.0107 11.1782C18.0911 11.1404 18.1636 11.0852 18.2239 11.0156L22.4296 6.2279C22.5555 6.08618 22.6259 5.8962 22.6259 5.69839C22.6259 5.50057 22.5555 5.31006 22.4296 5.16834Z" fill="#F78D1E"></path>
+                      </svg></span></a></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+
+
+            <div class="d-flex gap-4 align-items-center custom-navigation justify-content-end">
+                <div class="swiper-scrollbar swiper-scrollbar position-relative"></div>
+                <div class="d-flex gap-5">
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev position-relative"></div>
+                    <div class="swiper-button-next position-relative"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .category-slider-swiper-slide{
+    border-radius: 15.25px;
+    border: 1.107px solid #d9d9d9;
+    box-shadow: none;
+    height: 100%;
+    }
+</style>
+
+<script>
+    new Swiper(".categorySlider-{{section.id}}", {
+        slidesPerView: 1.8,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar",
+            draggable: true,
+            hide: false,
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 2.3,
+                spaceBetween: 10,
+            },
+            540: {
+                slidesPerView: 3.3,
+                spaceBetween: 10,
+            },
+            762: {
+                slidesPerView: 4.3,
+                spaceBetween: 20,
+            },
+            1240: {
+                slidesPerView: 5.3,
+                spaceBetween: 20,
+            },
+        },
+    });
+</script>
+
+
+{% schema %}
+{
+    "name": "Collection Slider",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Shop By Category",
+            "label": "Title"
+        }
+        ],
+        "blocks": [{
+            "name": "collection",
+            "type": "collection-item",
+            "settings": [{
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },{
+                "type": "text",
+                "id": "title",
+                "default": "Rings",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "text",
+                "default": "Shop Rings",
+                "label": "Text"
+            }
+            ,
+            {
+                "type": "url",
+                "id": "link",
+                "label": "Link"
+            }
+        ]
+        }]
+        ,
+        "presets": [{
+            "name": "Collection Slider"
+        }]
+}
+{% endschema %}

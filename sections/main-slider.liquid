@@ -1,0 +1,135 @@
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+
+<div class="swiper mySwiper homeMainSlider--{{section.id}}" style="--swiper-theme-color: #fff;">
+  <div class="swiper-wrapper"> 
+        {% for block in section.blocks %}
+            {% assign mobileImage = block.settings.mobile_image |  default: block.settings.image %}
+            <div class="swiper-slide">
+                <picture>
+                  <source media="(min-width:768px)" srcset="{{block.settings.image |  image_url }}">
+                  <img
+                    class="img-fluid"
+                    width="428"
+                    height="743"
+                    src="{{ mobileImage |  image_url }}"
+                    alt="main banner"
+                  >
+                </picture>
+            </div>
+        {% endfor %}
+  </div>
+  <!--
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  -->
+  <div class="swiper-pagination"></div>
+  <div class="autoplay-progress">
+    <svg viewBox="0 0 48 48" width="40" height="40">
+      <circle cx="24" cy="24" r="20"></circle>
+    </svg>
+    <span></span>
+  </div>
+</div>
+
+
+ <!-- home main slider Initialize Swiper -->
+ <script>
+    const progressCircle = document.querySelector(".homeMainSlider--{{section.id}} .autoplay-progress svg");
+    const progressContent = document.querySelector(".homeMainSlider--{{section.id}} .autoplay-progress span");
+    new Swiper(".homeMainSlider--{{section.id}}", {
+        spaceBetween: 0,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: ".homeMainSlider--{{section.id}} .swiper-pagination",
+            clickable: true
+        },
+        navigation: {
+            nextEl: ".homeMainSlider--{{section.id}} .swiper-button-next",
+            prevEl: ".homeMainSlider--{{section.id}} .swiper-button-prev"
+        },
+        on: {
+            autoplayTimeLeft(s, time, progress) {
+                progressCircle.style.setProperty("--progress", 1 - progress);
+                progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+            }
+        }
+    });
+</script>
+
+<style>
+  /* main-slider-section */
+.main-slider-section picture img{
+  width: 100%;
+  height: auto;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--swiper-theme-color);
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--swiper-theme-color);
+  fill: none;
+  stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Main Slider",
+  "class": "main-slider-section",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "slide",
+      "type": "slide-block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Slider"
+    }
+  ]
+}
+{% endschema %}

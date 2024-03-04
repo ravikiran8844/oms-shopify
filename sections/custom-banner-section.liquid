@@ -1,0 +1,36 @@
+
+<section class="container-fluid p-0">
+      <div class="col-12 p-0">
+        <div>
+          <picture>
+            <source media="(max-width:567px)" srcset="{{section.settings.mobile_image |  image_url }}" />
+            <source media="(min-width:568px)" srcset="{{section.settings.image |  image_url }}" />
+            <img height="174" width="1920" src="{{section.settings.mobile_image |  image_url }}" alt="slide"
+              class="img-fluid w-100" />
+          </picture>
+        </div>
+      </div>
+    </section>
+
+
+
+{% schema %}
+{
+    "name": "Custom Banner Section",
+    "settings": [
+        {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Desktop Image"
+        },
+        {
+            "id": "mobile_image",
+            "type": "image_picker",
+            "label": "Mobile Image"
+        }
+        ],
+    "presets": [{
+        "name": "Custom Banner Section"
+    }]
+}
+{% endschema %}

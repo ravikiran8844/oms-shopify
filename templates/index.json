@@ -1,0 +1,129 @@
+{
+  "sections": {
+    "main_slider_W47bBa": {
+      "type": "main-slider",
+      "blocks": {
+        "slide_block_DkLrx7": {
+          "type": "slide-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/mobile-banner1.webp"
+          }
+        },
+        "slide_block_4wpCyk": {
+          "type": "slide-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/mobile-banner1.webp"
+          }
+        }
+      },
+      "block_order": [
+        "slide_block_DkLrx7",
+        "slide_block_4wpCyk"
+      ],
+      "settings": {
+      }
+    },
+    "custom_collection_rm4P6X": {
+      "type": "custom-collection",
+      "blocks": {
+        "collection_item_E3njb9": {
+          "type": "collection-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cat-3.webp",
+            "title": "Solid Idol",
+            "text": "Explore",
+            "link": ""
+          }
+        },
+        "collection_item_LnRWt9": {
+          "type": "collection-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cat-2.webp",
+            "title": "Chains",
+            "text": "Explore",
+            "link": ""
+          }
+        },
+        "collection_item_zG4Ghr": {
+          "type": "collection-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cat-4.webp",
+            "title": "Braclets",
+            "text": "Explore",
+            "link": ""
+          }
+        },
+        "collection_item_MxThP9": {
+          "type": "collection-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cat-5.webp",
+            "title": "Payal",
+            "text": "Explore",
+            "link": ""
+          }
+        },
+        "collection_item_cbTEzr": {
+          "type": "collection-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/category-1.webp",
+            "title": "Pendants",
+            "text": "Explore",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_E3njb9",
+        "collection_item_LnRWt9",
+        "collection_item_zG4Ghr",
+        "collection_item_MxThP9",
+        "collection_item_cbTEzr"
+      ],
+      "settings": {
+        "title": "Shop By Category"
+      }
+    },
+    "trust_cards_section_kVaFaJ": {
+      "type": "trust-cards-section",
+      "blocks": {
+        "card_block_7LxPrJ": {
+          "type": "card-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo-2.png",
+            "title": "40 Years of trust",
+            "text": "<p>We stand behind our quality with more than 4 decades of trust from our 500+ dealer network worldwide.<\/p>"
+          }
+        },
+        "card_block_XVbMU3": {
+          "type": "card-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo-1.png",
+            "title": "20+ TECHNOLOGIES",
+            "text": "Being pioneers in the field of silver and with more than 20+technologies, you dream it we make it!"
+          }
+        }
+      },
+      "block_order": [
+        "card_block_7LxPrJ",
+        "card_block_XVbMU3"
+      ],
+      "settings": {
+      }
+    },
+    "custom_banner_section_K8BgFQ": {
+      "type": "custom-banner-section",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/home-bottom-banner.webp",
+        "mobile_image": "shopify:\/\/shop_images\/home-bottom-mobile-banner.webp"
+      }
+    }
+  },
+  "order": [
+    "main_slider_W47bBa",
+    "custom_collection_rm4P6X",
+    "trust_cards_section_kVaFaJ",
+    "custom_banner_section_K8BgFQ"
+  ]
+}
